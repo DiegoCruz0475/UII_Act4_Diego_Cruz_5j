@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyería Elegancia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        h1 {
+            color: #b8860b; /* Dorado */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .producto {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: #fefefe;
+            display: flex;
+            align-items: center;
+        }
+        .producto-imagen {
+            flex: 0 0 100px; /* Tamaño fijo para la imagen */
+            height: 100px;
+            margin-right: 20px;
+            background-color: #eee; /* Placeholder para la imagen */
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em;
+            color: #666;
+            text-align: center;
+            overflow: hidden; /* Asegura que la imagen se ajuste */
+        }
+        .producto-imagen img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .producto-info {
+            flex-grow: 1;
+        }
+        .producto h2 {
+            color: #a0522d; /* Sienna */
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .producto p {
+            margin: 5px 0;
+        }
+        .producto .precio {
+            font-weight: bold;
+            color: #b8860b; /* Dorado */
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nuestra Exclusiva Colección de Joyas</h1>
+        
+        {% if productos %}
+            {% for producto in productos %}
+                <div class="producto">
+                    <div class="producto-imagen">
+                        <!-- Aquí podrías colocar una imagen real del producto -->
+                        <!-- Por ahora, es un placeholder -->
+                        Imagen de Joya
+                    </div>
+                    <div class="producto-info">
+                        <h2>{{ producto.nombre }}</h2>
+                        <p class="precio">Precio: ${{ producto.precio|floatformat:2 }}</p>
+                        <p>Material: {{ producto.material }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay productos de joyería disponibles en este momento.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
